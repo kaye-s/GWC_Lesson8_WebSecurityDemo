@@ -5,6 +5,10 @@ from .models import Login
 def login_view(request):
     error = None
 
+    # Initialize failed attempts list in session
+    if "failed_attempts" not in request.session:
+        request.session["failed_attempts"] = []
+
     if request.method == "POST":
         entered_password = request.POST.get("password")
 
@@ -14,7 +18,22 @@ def login_view(request):
         else:
             error = "Incorrect password. Please try again."
 
-    return render(request, "login.html", {"error": error})
+            # store failed attempt
+            failed_attempts = request.session["failed_attempts"]
+            failed_attempts.append(entered_password)
+            request.session["failed_attempts"] = failed_attempts
+            request.session.modified = True
+
+    return render(request, "login.html", {
+        "error": error,
+        "failed_attempts": request.session["failed_attempts"]
+    })
+
 
 def congrats_view(request):
-    return render(request, "congrats.html")
+    response = render(request, "congrats.html")
+    return response
+
+def reset_lab(request):
+    request.session.pop("failed_attempts", None)
+    return redirect("login")
