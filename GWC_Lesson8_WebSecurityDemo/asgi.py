@@ -1,5 +1,5 @@
 """
-ASGI config for GWC_Lesson1_BruteForceLogin project.
+ASGI config for GWC_Lesson8_WebSecurityDemo project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GWC_Lesson1_BruteForceLogin.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GWC_Lesson8_WebSecurityDemo.settings')
 
 application = get_asgi_application()

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BruteforceConfig(AppConfig):
+class WebSecurityConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'BruteForce'
+    name = 'WebSecurity'

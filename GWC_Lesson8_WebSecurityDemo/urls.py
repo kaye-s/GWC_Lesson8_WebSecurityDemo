@@ -1,5 +1,5 @@
 """
-URL configuration for GWC_Lesson1_BruteForceLogin project.
+URL configuration for GWC_Lesson8_WebSecurityDemo project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -15,10 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from BruteForce.views import login_view, congrats_view, reset_lab
+from WebSecurity.views import home_view
 
 urlpatterns = [
-    path("", login_view, name="login"),
-    path("congrats/", congrats_view, name="congrats"),
-    path("reset/", reset_lab, name="reset_lab"),
+    path("", home_view, name="home"),
 ]
