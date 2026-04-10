@@ -81,3 +81,50 @@ body {
   list-style-type: disc; /* show bullets inside the box */
   color: #000; /* ensure list items are black */
 }
+
+/* CONTENT BOX */
+#content-box {
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  text-align: center;
+}
+
+/* ===================== */
+/* 🐎 MOJO THEME */
+/* ===================== */
+body.mojo-theme {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+body.mojo-theme #content-box {
+  background-color: #2c2c2c;
+}
+
+/* ===================== */
+/* 💖 BARBIE THEME */
+/* ===================== */
+body.barbie-theme {
+  background-color: #ff69b4;   /* full-page pink */
+  color: white;                /* text on page */
+}
+
+body.barbie-theme #content-box {
+  background-color: #ff69b4;   /* same as body so box blends in */
+  color: white;
+  transition: all 0.5s ease;
+}
+
+/* DEFAULT (MOJO / starting state) */
+body.mojo-theme {
+  background-color: #ffffff;   /* start white */
+  color: #000000;
+}
+
+/* BARBIE MODE */
+body.barbie-theme {
+  background-color: #ff69b4;   /* pink */
+  color: white;
+}

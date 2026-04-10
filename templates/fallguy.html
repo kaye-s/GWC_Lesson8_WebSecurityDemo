@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Security Demo</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1>Web Security Demo</h1>
+	<div id="navigation">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/barbie">Barbie</a></li>
+            <li><a href="/notebook">The Notebook</a></li>
+            <li><a href="/fallguy">The Fall Guy</a></li>
+            <li><a href="/piano">La La Land</a></li>
+            <li style="text-align:right"><a href="/login">Manager Login</a></li>
+		</ul>
+	</div>
+    <div id="content">
+    <h1>The Fall Guy</h1>
+    <br>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="secrettext" placeholder="Enter the secret word . . . " maxlength="2">
+            <button type="submit">Submit</button>
+        </form>
+        {% if flag %}
+    <p style="color: tan; font-weight: bold;">
+        {{ flag }}
+    </p>
+{% endif %}
+    <br>
+    <img src="{% static 'fallguy.webp' %}" alt="Ryan Gosling in the fall guy">
+    <!-- my secret password is the first name of ryan gosling's character in the fall guy -->
+
+</div>
+</html>

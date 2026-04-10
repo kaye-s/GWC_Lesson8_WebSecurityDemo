@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Security Demo</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1>Web Security Demo</h1>
+	<div id="navigation">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/barbie">Barbie</a></li>
+            <li><a href="/notebook">The Notebook</a></li>
+            <li><a href="/fallguy">The Fall Guy</a></li>
+            <li><a href="/piano">La La Land</a></li>
+            <li style="text-align:right"><a href="/login">Manager Login</a></li>
+		</ul>
+	</div>
+    <div id="content">
+    <h1>La La Land</h1>
+    <br>
+        <img width="1000px" src="{% static 'piano_image.png' %}" alt="Piano Score for a piece">
+    <br>
+        <p>QmFzZTY0IGlzIGEgd2F5IHRvIGVuY29kZSBtZXNzYWdlcy4gRW5jb2RpbmcgaXMgZGlmZmVyZW50IGZyb20gZW5
+            jcnlwdGluZyBpbiB0aGF0IHlvdSBjYW4gZWFzaWx5IGdvIGJhY2sgYW5kIGZvcnRoIGJldHdlZW4gZW5jb2RlZC
+            BhbmQgZGVjb2RlZCBtZXNzYWdlcy4gQ29uZ3JhdHMgb24gbGVhcm5pbmcgYWJvdXQgZW5jb2RpbmcgYW5kIGJhc
+            2U2NCEgWW91IG1heSBuZWVkIHRoaXMgZm9yIGxhdGVyLi4uIEhlcmUncyB5b3VyIExhIExhIExhbmQgZmxhZzog
+            ZmxhZ3t5fS4=</p>
+
+</div>
+</html>

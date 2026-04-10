@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Security Demo</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="mojo-theme">
+
+<h1 id="title">Mojo Dojo Casa House 🐎</h1>
+
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/barbie">Barbie</a></li>
+        <li><a href="/notebook">The Notebook</a></li>
+        <li><a href="/fallguy">The Fall Guy</a></li>
+        <li><a href="/piano">La La Land</a></li>
+        <li style="text-align:right"><a href="/login">Manager Login</a></li>
+	</ul>
+</div>
+
+<div id="content-box">
+    <br>
+    <!-- Ken image (default) -->
+    <img id="theme-image" src="{% static 'ken.webp' %}" alt="Ken" width="300">
+
+    <br><br>
+
+    <button onclick="revealBarbie()" disabled>Reveal Flag 💖 </button>
+
+    <div id="flag" style="color:#ff69b4; background:#ff69b4;">
+    </div>
+</div>
+
+<script>
+function revealBarbie() {
+    // switch theme
+    document.body.classList.remove("mojo-theme");
+    document.body.classList.add("barbie-theme");
+    document.body.style.backgroundColor = "#ff69b4";
+
+    // change title
+    document.getElementById("title").innerText = "Barbie Dreamhouse 💖";
+
+    // swap image
+    document.getElementById("theme-image").src = "{% static 'barbie.webp' %}";
+
+    // fetch flag
+    fetch('/barbie_flag')
+        .then(res => res.json())
+        .then(data => {
+            const flagDiv = document.getElementById("flag");
+            flagDiv.innerText = data.flag;
+
+            flagDiv.style.color = "white";
+        });
+}
+</script>
+
+</body>
+</html>
