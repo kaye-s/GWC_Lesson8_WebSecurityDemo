@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["GWC_Lesson8.onrender.com"]
+ALLOWED_HOSTS = ["GWC_Lesson8_WebSecurityDemo.onrender.com"]
 
 
 # Application definition
