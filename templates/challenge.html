@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Security Demo</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+
+	<style>
+		/* PAGE-SPECIFIC IMPROVEMENTS */
+		#content {
+			max-width: 900px;
+			margin: 30px auto;
+			line-height: 1.6;
+			font-size: 16px;
+		}
+
+		#content h1 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		#content img {
+			display: block;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+			max-width: 100%;
+			height: auto;
+		}
+
+		.section {
+			margin-bottom: 25px;
+		}
+
+		.code-block {
+			background-color: #111;
+			color: #00ffcc;
+			padding: 15px;
+			border-radius: 8px;
+			font-family: monospace;
+			overflow-x: auto;
+			margin: 15px 0;
+		}
+
+		.highlight {
+			background-color: rgba(255, 255, 0, 0.2);
+			padding: 2px 6px;
+			border-radius: 4px;
+		}
+
+		a.resource-link {
+			color: #4da6ff;
+			word-break: break-word;
+		</style>
+</head>
+
+<body>
+<h1>Web Security Demo</h1>
+
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/barbie">Barbie</a></li>
+		<li><a href="/notebook">The Notebook</a></li>
+		<li><a href="/fallguy">The Fall Guy</a></li>
+		<li><a href="/piano">La La Land</a></li>
+		<li><a href="/submit">Submit the message</a></li>
+		<li style="text-align:right"><a href="/login">Manager Login</a></li>
+	</ul>
+</div>
+
+<div id="content">
+
+	<h1>Congrats!</h1>
+
+	<img src="{% static 'ryan_gosling_in_space.avif' %}" alt="Ryan Gosling in Project Hail Mary">
+
+	<div class="section">
+		<p>
+			You completed the challenge and found the secret message! Now you know a few different techniques that attackers use to break into websites.
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			If you want to try a more advanced technique keep reading to learn about SQL Injection.
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			SQL Injection is a vulnerability when the user input can be directly used to ask or query the database for information.
+			As an example, when you login to a website using a username and password, this is what the backend looks like:
+		</p>
+
+		<div class="code-block">
+			SELECT * FROM [table] WHERE username=username AND password=password;
+		</div>
+
+		<p>
+			This is called SQL code and it checks a list of database records for any record with the username and password you gave,
+			that’s how it finds your account. If a programmer doesn't write their code securely though we can take advantage of this process
+			and perform an attack called SQL Injection.
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			Instead of typing in a username and password, we can type in code directly into the username field to trick the application.
+			One example of this is:
+		</p>
+
+		<div class="code-block">
+			' OR '1'='1 --
+		</div>
+
+		<p>
+			If you type that exactly into the username field, an application reads that as:
+		</p>
+
+		<div class="code-block">
+			SELECT * FROM [table] WHERE username = '' OR '1' = '1' -- AND password =
+		</div>
+
+		<p>
+			Translating this gives us: Return all rows in the database where username = whatever OR 1=1.
+			Since <span class="highlight">1 always equals 1</span>, it returns a random record in the database,
+			giving us access to the application.
+		</p>
+
+		<p>
+			The minus signs are a comment in SQL and essentially tell the code to ignore everything after that point.
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			Now try this on our login page and see if it is vulnerable to SQL Injection.
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			w3Schools has a great resource on SQL injection here if you want to learn more:
+			<br>
+			<a class="resource-link" href="https://www.w3schools.com/sql/sql_injection.asp" target="_blank">
+				https://www.w3schools.com/sql/sql_injection.asp
+			</a>
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			If you want to try more web security labs visit:
+			<br>
+			<a class="resource-link" href="https://portswigger.net/web-security/all-labs" target="_blank">
+				https://portswigger.net/web-security/all-labs
+			</a>
+		</p>
+	</div>
+
+</div>
+</body>
+</html>
