@@ -4,8 +4,17 @@
 <head>
 	<title>Web Security Demo</title>
 	<link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
-<body>
+<body style="background-color:#BCDFFA;">
 <h1>Web Security Demo</h1>
 	<div id="navigation">
 		<ul>
@@ -19,7 +28,10 @@
 		</ul>
 	</div>
     <div id="content">
-    <h1>The Notebook</h1>
+        <h1 style="text-align:center;font-family:Rouge Script;font-size:xxx-large;">The Notebook</h1>
+        <div class="center">
+        <img width="1000px" src="{%static 'ryan_notebook.jpg' %}" alt="Ryan in the Notebook">
+        </div>
     <p>According to all known laws of aviation, there is no way a bee should be able to fly.
 Its wings are too small to get its fat little body off the ground.
 The bee, of course, flies anyway because bees don't care what humans think is impossible.

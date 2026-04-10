@@ -35,8 +35,8 @@ def login_view(request):
 
     # hardcoded creds for demo
     correct_email = "bob.manager@email.com"
-    correct_password = "password123"
     sqlinjection = "'OR '1'='1 --"
+    correct_password = "Ryang0sling"
 
     if request.method == "POST":
         email = request.POST.get("email")

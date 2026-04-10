@@ -4,11 +4,17 @@
 <head>
 	<title>Web Security Demo</title>
 	<link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
 </head>
 
-<body class="mojo-theme">
+<body class="mojo-theme" style="background-color:#b68374;">
 
-<h1 id="title">Mojo Dojo Casa House 🐎</h1>
+<h1 id="title" style="font-family:Mansalva;">Mojo Dojo Casa House 🐎</h1>
 
 <div id="navigation">
 	<ul>
@@ -44,6 +50,7 @@ function revealBarbie() {
 
     // change title
     document.getElementById("title").innerText = "Barbie Dreamhouse 💖";
+    document.getElementById("title").style.fontFamily = "Fleur De Leah";
 
     // swap image
     document.getElementById("theme-image").src = "{% static 'barbie.webp' %}";

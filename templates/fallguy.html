@@ -4,8 +4,11 @@
 <head>
 	<title>Web Security Demo</title>
 	<link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#883f01;">
 <h1>Web Security Demo</h1>
 	<div id="navigation">
 		<ul>
@@ -19,7 +22,7 @@
 		</ul>
 	</div>
     <div id="content">
-    <h1>The Fall Guy</h1>
+    <h1 style="font-family:Holtwood One SC;">The Fall Guy</h1>
     <br>
         <form method="POST">
             {% csrf_token %}
