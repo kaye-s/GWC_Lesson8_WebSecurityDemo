@@ -24,6 +24,8 @@ from WebSecurity.views import notebook_view
 from WebSecurity.views import fallguy_view
 from WebSecurity.views import login_view
 from WebSecurity.views import lala_view
+from WebSecurity.views import submit_view
+from WebSecurity.views import challenge_view
 
 urlpatterns = [
     path("", home_view, name="home"),
@@ -35,4 +37,6 @@ urlpatterns = [
     path("fallguy", fallguy_view, name="fallguy"),
     path("login", login_view, name="login"),
     path("piano", lala_view, name="piano"),
+    path("submit", submit_view, name="submit"),
+    path("challenge", challenge_view, name="challenge"),
 ]

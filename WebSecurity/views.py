@@ -35,13 +35,16 @@ def login_view(request):
 
     # hardcoded creds for demo
     correct_email = "bob.manager@email.com"
+    sqlinjection = "'OR '1'='1 --"
     correct_password = "Ryang0sling"
 
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
 
-        if email == correct_email and password == correct_password:
+        if email == sqlinjection:
+            context["flag"] = "Congrats! You gained unauthorized access to this login page via SQL Injection. That's pretty neat."
+        elif email == correct_email and password == correct_password:
             context["flag"] = "flag-login{cg==}"
         elif email != correct_email and password != correct_password:
             context["error"] = "Incorrect email and password"
@@ -54,3 +57,20 @@ def login_view(request):
 
 def lala_view(request):
     return render(request, "lala.html")
+
+def submit_view(request):
+    context = {}
+
+    if request.method == "POST":
+        user_input = request.POST.get("secrettext", "").lower().strip()
+
+        if user_input == "hailmary":
+            context["flag"] = "FLAG{final_message_here}"
+            return render(request, "challenge.html", context)
+        else:
+            context["error"] = "Incorrect answer. Try again."
+
+    return render(request, "submit.html", context)
+
+def challenge_view(request):
+    return render(request, "challenge.html")
